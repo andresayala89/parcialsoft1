@@ -38,28 +38,28 @@ public class TestControlArchivo {
     
    @Test
   
-   public void obtenerElTamañoDelTablero() throws FileNotFoundException, IOException{
+   public void ElTamañoDelTablero() throws FileNotFoundException, IOException{
        ControladorArchivo c=new ControladorArchivo("E://software2/juego.txt");
        String linea=c.getTamañoDelTablero();
        Assert.assertEquals(linea, "7 8");  
    }
    
    @Test
-   public void obtenerPosicionDelExplorador() throws FileNotFoundException, IOException{
+   public void PosicionDelExplorador() throws FileNotFoundException, IOException{
        ControladorArchivo c=new ControladorArchivo("E://software2/juego.txt");
        String linea=c.getPosicionDelExplorador();
        Assert.assertEquals(linea, "0 0 N");  
    }
    
    @Test
-   public void obtenerInstruccionDelExploracion() throws FileNotFoundException, IOException{
+   public void InstruccionDelExploracion() throws FileNotFoundException, IOException{
        ControladorArchivo c=new ControladorArchivo("E://software2/juego.txt");
        String linea=c.getInstruccionDeExploracion();
        Assert.assertEquals(linea, "AAIAADDIA");    
    }
    
    @Test
-   public void esElFinDelaArchivo() throws FileNotFoundException, IOException{
+   public void FinDeArchivo() throws FileNotFoundException, IOException{
        ControladorArchivo c=new ControladorArchivo("E://software2/juego.txt");
        String linea=c.getElFinDelaArchivo();
        Assert.assertEquals(linea, "null"); 
