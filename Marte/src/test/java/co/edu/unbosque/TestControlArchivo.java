@@ -19,27 +19,52 @@ import org.testng.annotations.BeforeTest;
  * @author F211
  */
 public class TestControlArchivo {
-    
+     
     @BeforeTest
     public void setTest() throws IOException{
-       // File f=new File("E://software2/juego.txt");
-       // f.createNewFile();
-        //FileWriter fw=new FileWriter(f);
-        //fw.append("7 8");
-        //fw.append("\n0 0 N");
-        //fw.append("\nAAIAADDIA");
-        //fw.close();
+        File f = new File("E://software2/juego.txt");
+        f.createNewFile();
+        FileWriter fw = new FileWriter(f);
+        fw.append("7 8");
+        fw.append("\n0 0 N");
+        fw.append("\nAAIAADDIA");
+        fw.close();
     }
     
-    @Test
+   @Test
     public void elArchivoExiste() throws FileNotFoundException{
-        ControladorArchivo c=new ControladorArchivo("E://software2/juego.txt");
-        
+        ControladorArchivo c=new ControladorArchivo("E://software2/juego.txt");  
     }
-    @Test
-    public void ObtieneElTamanioDelTablero() throws FileNotFoundException{
-        ControladorArchivo c=new ControladorArchivo("E://software2/juego.txt");
-        String linea=c.getPrimeraLinea();
-        Assert.assertEquals(linea,"AAIAADDIA");
-    }
+    
+   @Test
+  
+   public void obtenerElTamañoDelTablero() throws FileNotFoundException, IOException{
+       ControladorArchivo c=new ControladorArchivo("E://software2/juego.txt");
+       String linea=c.getTamañoDelTablero();
+       Assert.assertEquals(linea, "7 8");  
+   }
+   
+   @Test
+   public void obtenerPosicionDelExplorador() throws FileNotFoundException, IOException{
+       ControladorArchivo c=new ControladorArchivo("E://software2/juego.txt");
+       String linea=c.getPosicionDelExplorador();
+       Assert.assertEquals(linea, "0 0 N");  
+   }
+   
+   @Test
+   public void obtenerInstruccionDelExploracion() throws FileNotFoundException, IOException{
+       ControladorArchivo c=new ControladorArchivo("E://software2/juego.txt");
+       String linea=c.getInstruccionDeExploracion();
+       Assert.assertEquals(linea, "AAIAADDIA");    
+   }
+   
+   @Test
+   public void esElFinDelaArchivo() throws FileNotFoundException, IOException{
+       ControladorArchivo c=new ControladorArchivo("E://software2/juego.txt");
+       String linea=c.getElFinDelaArchivo();
+       Assert.assertEquals(linea, "null"); 
+       
+       
+   }
+
 }
